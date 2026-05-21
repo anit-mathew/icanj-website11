@@ -496,7 +496,16 @@
             .hero-sub { max-width: 100%; }
             .hero-actions { justify-content: center; }
             .pillars { grid-template-columns: 1fr; }
-            .pillar { border-right: none; border-bottom: 1px solid rgba(0,173,239,0.12); }
+            .pillar { 
+                border-right: none; 
+                border-bottom: none;
+                padding: 2rem 1.5rem;
+            }
+            .pillar:nth-child(1),
+            .pillar:nth-child(2),
+            .pillar:nth-child(3) {
+                background: linear-gradient(135deg, #0075AA 0%, #00ADEF 100%);
+            }
             .welcome-inner { grid-template-columns: 1fr; gap: 3rem; }
             .visit-grid { grid-template-columns: 1fr; }
             .service-card { position: static; }
