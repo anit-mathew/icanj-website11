@@ -495,9 +495,17 @@
             .hero h1 { max-width: 100%; }
             .hero-sub { max-width: 100%; }
             .hero-actions { justify-content: center; }
-            .pillars { grid-template-columns: 1fr; }
+            .pillars { 
+                display: flex;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scroll-snap-type: x mandatory;
+            }
             .pillar { 
-                border-right: none; 
+                flex: 0 0 85%;
+                max-width: 85%;
+                scroll-snap-align: center;
+                border-right: none;
                 border-bottom: none;
                 padding: 2rem 1.5rem;
             }
