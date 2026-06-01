@@ -133,14 +133,56 @@
         footer p { color: rgba(255,255,255,0.35); font-size: 0.8rem; }
         footer .copy { margin-top: 2rem; font-size: 0.7rem; color: rgba(255,255,255,0.2); }
 
+
+        /* ── HAMBURGER ── */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+            background: none;
+            border: none;
+            z-index: 101;
+        }
+        .nav-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: white;
+            border-radius: 2px;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+        .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .nav-toggle.open span:nth-child(2) { opacity: 0; }
+        .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
         @media (max-width: 900px) {
+            .nav-toggle { display: flex; }
             .nav-links { display: none; }
+            .nav-links.mobile-open {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                position: absolute;
+                top: 74px; left: 0; right: 0;
+                background: rgba(8,16,32,0.97);
+                backdrop-filter: blur(18px);
+                padding: 1.5rem 2rem 2rem;
+                gap: 1.25rem;
+                border-top: 1px solid rgba(0,173,239,0.15);
+                z-index: 99;
+            }
+            .nav-links.mobile-open a { font-size: 1rem; padding: 4px 0; }
+            .nav-links.mobile-open .btn-give { margin-top: 0.5rem; }
             .featured-card { grid-template-columns: 1fr; }
             .featured-img { min-height: 260px; }
             .events-grid { grid-template-columns: 1fr; }
             .recurring-item { flex-wrap: wrap; }
             .newsletter-form { flex-direction: column; }
         }
+
     </style>
 </head>
 <body>
@@ -151,6 +193,9 @@
             <div class="logo-mark">I</div>
             <div><span class="logo-text">ICANJ</span><span class="logo-sub">Hackensack, NJ</span></div>
         </a>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
         <ul class="nav-links">
             <li><a href="about.html">About</a></li>
             <li><a href="visit.html">Visit</a></li>
@@ -377,6 +422,25 @@
 </footer>
 
 <script>
+// Hamburger menu
+(function() {
+    var toggle = document.querySelector(".nav-toggle");
+    var navLinks = document.querySelector(".nav-links");
+    if (!toggle || !navLinks) return;
+    toggle.addEventListener("click", function() {
+        var isOpen = navLinks.classList.toggle("mobile-open");
+        toggle.classList.toggle("open", isOpen);
+        toggle.setAttribute("aria-expanded", isOpen);
+    });
+    navLinks.querySelectorAll("a").forEach(function(a) {
+        a.addEventListener("click", function() {
+            navLinks.classList.remove("mobile-open");
+            toggle.classList.remove("open");
+            toggle.setAttribute("aria-expanded", "false");
+        });
+    });
+})();
+
 function handleNewsletter(e) {
     e.preventDefault();
     const btn = e.target.querySelector('button');
