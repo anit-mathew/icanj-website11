@@ -31,17 +31,26 @@
         .section-tag { display: inline-block; background: var(--blue); color: white; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; padding: 5px 16px; border-radius: 4px; margin-bottom: 1.25rem; }
 
         /* PAGE HERO */
-        .page-hero {
-            padding-top: 74px; height: 440px;
-            background: linear-gradient(to right, rgba(8,16,32,0.95) 40%, rgba(8,16,32,0.45) 100%),
-                        url('https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=1400&q=80') center/cover;
-            display: flex; align-items: center; position: relative;
+        /* PAGE MASTHEAD */
+        .masthead {
+            padding-top: 74px;
+            background: linear-gradient(135deg, #081020 0%, #0A1628 50%, #0D1E35 100%);
+            position: relative; overflow: hidden;
         }
-        .page-hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 120px; background: linear-gradient(to bottom, transparent, var(--navy)); }
-        .page-hero-inner { max-width: 1280px; margin: 0 auto; padding: 0 2.5rem; position: relative; z-index: 1; }
-        .page-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 7vw, 6rem); line-height: 0.95; letter-spacing: 2px; }
-        .page-hero h1 span { color: var(--blue); }
-        .page-hero-sub { font-family: 'Lora', serif; font-style: italic; color: var(--text-mid); font-size: 1.1rem; margin-top: 0.75rem; }
+        .masthead::before {
+            content: ''; position: absolute; top: -200px; right: -100px;
+            width: 700px; height: 700px;
+            background: radial-gradient(circle, rgba(0,173,239,0.1) 0%, transparent 65%);
+        }
+        .masthead::after {
+            content: 'EVENTS'; position: absolute; font-family: 'Bebas Neue', sans-serif;
+            font-size: 22vw; color: rgba(0,173,239,0.03);
+            bottom: -2vw; left: -1vw; letter-spacing: -4px; pointer-events: none; line-height: 1;
+        }
+        .masthead-inner { max-width: 1280px; margin: 0 auto; padding: 5rem 2.5rem 4rem; position: relative; z-index: 1; }
+        .masthead h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 7vw, 6.5rem); line-height: 0.95; letter-spacing: 2px; }
+        .masthead h1 span { color: var(--blue); }
+        .masthead-sub { font-family: 'Lora', serif; font-style: italic; font-size: 1.15rem; color: var(--text-mid); margin-top: 1rem; max-width: 560px; line-height: 1.7; }
 
         /* FEATURED EVENT */
         .featured-event { background: var(--navy); padding: 5rem 2.5rem; }
@@ -153,11 +162,12 @@
     </div>
 </nav>
 
-<div class="page-hero">
-    <div class="page-hero-inner">
+<!-- MASTHEAD -->
+<div class="masthead">
+    <div class="masthead-inner">
         <span class="section-tag">What's Happening</span>
         <h1>Church<br><span>Events</span></h1>
-        <p class="page-hero-sub">Gather, celebrate, and grow — there's always something happening at ICANJ.</p>
+        <p class="masthead-sub">Gather, celebrate, and grow — there's always something happening at ICANJ.</p>
     </div>
 </div>
 
@@ -167,7 +177,7 @@
         <span class="section-tag">Don't Miss This</span>
         <div class="featured-card" style="margin-top:1.5rem">
             <div class="featured-img">
-                <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&q=80" alt="Summer Celebration">
+                <img src="pics/DSC03708.JPG" alt="Summer Celebration">
                 <div class="featured-badge">Featured Event</div>
             </div>
             <div class="featured-body">
@@ -202,7 +212,7 @@
 
         <div class="event-card">
             <div class="event-card-img">
-                <img src="https://images.unsplash.com/photo-1509909756405-be0199881695?w=600&q=80" alt="VBS">
+                <img src="pics/DSC03721.JPG" alt="VBS">
             </div>
             <div class="event-card-body">
                 <div class="event-date-inline"><i class="fas fa-calendar"></i> July 7–11, 2026</div>
@@ -218,7 +228,7 @@
 
         <div class="event-card">
             <div class="event-card-img">
-                <img src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=600&q=80" alt="Women's Retreat">
+                <img src="pics/DSC03738.JPG" alt="Women's Retreat">
             </div>
             <div class="event-card-body">
                 <div class="event-date-inline"><i class="fas fa-calendar"></i> August 1–3, 2026</div>
@@ -233,7 +243,7 @@
 
         <div class="event-card">
             <div class="event-card-img">
-                <img src="https://images.unsplash.com/photo-1492538368677-f6e0afe31dcc?w=600&q=80" alt="Youth Conference">
+                <img src="pics/DSC03755.JPG" alt="Youth Conference">
             </div>
             <div class="event-card-body">
                 <div class="event-date-inline"><i class="fas fa-calendar"></i> August 15–17, 2026</div>
@@ -248,7 +258,7 @@
 
         <div class="event-card">
             <div class="event-card-img">
-                <img src="https://images.unsplash.com/photo-1548438294-1ad5d5f4f063?w=600&q=80" alt="Night of Worship">
+                <img src="pics/DSC03781.JPG" alt="Night of Worship">
             </div>
             <div class="event-card-body">
                 <div class="event-date-inline"><i class="fas fa-calendar"></i> June 27, 2026</div>
@@ -263,7 +273,7 @@
 
         <div class="event-card">
             <div class="event-card-img">
-                <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80" alt="Community Outreach">
+                <img src="pics/DSC04224.JPG" alt="Community Outreach">
             </div>
             <div class="event-card-body">
                 <div class="event-date-inline"><i class="fas fa-calendar"></i> July 19, 2026</div>
@@ -278,7 +288,7 @@
 
         <div class="event-card">
             <div class="event-card-img">
-                <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80" alt="Worship Night">
+                <img src="pics/DSC05273.JPG" alt="Worship Night">
             </div>
             <div class="event-card-body">
                 <div class="event-date-inline"><i class="fas fa-calendar"></i> September 6, 2026</div>

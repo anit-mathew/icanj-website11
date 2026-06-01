@@ -31,18 +31,26 @@
         .section-tag { display: inline-block; background: var(--blue); color: white; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; padding: 5px 16px; border-radius: 4px; margin-bottom: 1.25rem; }
 
         /* PAGE HERO */
-        .page-hero {
+        /* PAGE MASTHEAD */
+        .masthead {
             padding-top: 74px;
-            height: 440px;
-            background: linear-gradient(to right, rgba(8,16,32,0.95) 40%, rgba(8,16,32,0.4) 100%),
-                        url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1400&q=80') center/cover;
-            display: flex; align-items: center; position: relative;
+            background: linear-gradient(135deg, #081020 0%, #0A1628 50%, #0D1E35 100%);
+            position: relative; overflow: hidden;
         }
-        .page-hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 120px; background: linear-gradient(to bottom, transparent, var(--navy)); }
-        .page-hero-inner { max-width: 1280px; margin: 0 auto; padding: 0 2.5rem; position: relative; z-index: 1; }
-        .page-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 7vw, 6rem); line-height: 0.95; letter-spacing: 2px; }
-        .page-hero h1 span { color: var(--blue); }
-        .page-hero-sub { font-family: 'Lora', serif; font-style: italic; color: var(--text-mid); font-size: 1.1rem; margin-top: 0.75rem; }
+        .masthead::before {
+            content: ''; position: absolute; top: -200px; right: -100px;
+            width: 700px; height: 700px;
+            background: radial-gradient(circle, rgba(0,173,239,0.1) 0%, transparent 65%);
+        }
+        .masthead::after {
+            content: 'MINISTRIES'; position: absolute; font-family: 'Bebas Neue', sans-serif;
+            font-size: 22vw; color: rgba(0,173,239,0.03);
+            bottom: -2vw; left: -1vw; letter-spacing: -4px; pointer-events: none; line-height: 1;
+        }
+        .masthead-inner { max-width: 1280px; margin: 0 auto; padding: 5rem 2.5rem 4rem; position: relative; z-index: 1; }
+        .masthead h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 7vw, 6.5rem); line-height: 0.95; letter-spacing: 2px; }
+        .masthead h1 span { color: var(--blue); }
+        .masthead-sub { font-family: 'Lora', serif; font-style: italic; font-size: 1.15rem; color: var(--text-mid); margin-top: 1rem; max-width: 560px; line-height: 1.7; }
 
         /* INTRO */
         .intro { background: var(--mist); color: var(--navy); padding: 5rem 2.5rem; text-align: center; }
@@ -141,11 +149,12 @@
     </div>
 </nav>
 
-<div class="page-hero">
-    <div class="page-hero-inner">
+<!-- MASTHEAD -->
+<div class="masthead">
+    <div class="masthead-inner">
         <span class="section-tag">Get Involved</span>
         <h1>Our<br><span>Ministries</span></h1>
-        <p class="page-hero-sub">Every ministry is a door to belong, grow, and serve.</p>
+        <p class="masthead-sub">Every ministry is a door to belong, grow, and serve.</p>
     </div>
 </div>
 
@@ -160,7 +169,7 @@
 
         <div class="ministry-card">
             <div class="ministry-img">
-                <img src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=800&q=80" alt="Children's Ministry">
+                <img src="pics/DSC01392.jpg" alt="Children's Ministry">
                 <div class="ministry-img-overlay"></div>
                 <div class="ministry-img-icon"><i class="fas fa-child"></i></div>
             </div>
@@ -179,7 +188,7 @@
 
         <div class="ministry-card">
             <div class="ministry-img">
-                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80" alt="Youth Ministry">
+                <img src="pics/DSC03755.JPG" alt="Youth Ministry">
                 <div class="ministry-img-overlay"></div>
                 <div class="ministry-img-icon"><i class="fas fa-fire"></i></div>
             </div>
@@ -197,7 +206,7 @@
 
         <div class="ministry-card">
             <div class="ministry-img">
-                <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&q=80" alt="Young Adults">
+                <img src="pics/DSC03781.JPG" alt="Young Adults">
                 <div class="ministry-img-overlay"></div>
                 <div class="ministry-img-icon"><i class="fas fa-compass"></i></div>
             </div>
@@ -215,7 +224,7 @@
 
         <div class="ministry-card">
             <div class="ministry-img">
-                <img src="https://images.unsplash.com/photo-1609220136736-443140cfeaa6?w=800&q=80" alt="Women's Ministry">
+                <img src="pics/DSC04224.JPG" alt="Women's Ministry">
                 <div class="ministry-img-overlay"></div>
                 <div class="ministry-img-icon"><i class="fas fa-heart"></i></div>
             </div>
@@ -233,7 +242,7 @@
 
         <div class="ministry-card">
             <div class="ministry-img">
-                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80" alt="Men's Ministry">
+                <img src="pics/DSC05285.JPG" alt="Men's Ministry">
                 <div class="ministry-img-overlay"></div>
                 <div class="ministry-img-icon"><i class="fas fa-shield"></i></div>
             </div>
@@ -251,7 +260,7 @@
 
         <div class="ministry-card">
             <div class="ministry-img">
-                <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80" alt="Worship Ministry">
+                <img src="pics/DSC05304.JPG" alt="Worship Ministry">
                 <div class="ministry-img-overlay"></div>
                 <div class="ministry-img-icon"><i class="fas fa-music"></i></div>
             </div>
