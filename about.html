@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | ICANJ Church</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Lora:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --blue: #00ADEF; --blue-deep: #0089C4; --blue-dark: #005F8A;
+            --navy: #0A1628; --navy-mid: #0D1E35; --navy-card: #112240;
+            --slate: #1A2E4A; --silver: #E8F4FB; --white: #FFFFFF;
+            --mist: #F0F7FC; --ink: #081020;
+            --text-dim: rgba(255,255,255,0.55); --text-mid: rgba(255,255,255,0.75);
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: var(--white); overflow-x: hidden; }
+
+        /* NAV */
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(8,16,32,0.88); backdrop-filter: blur(18px); border-bottom: 1px solid rgba(0,173,239,0.15); }
+        .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 2.5rem; height: 74px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: white; }
+        .logo-mark { width: 44px; height: 44px; background: var(--blue); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: white; box-shadow: 0 0 18px rgba(0,173,239,0.4); }
+        .logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 3px; }
+        .logo-sub { font-size: 0.6rem; letter-spacing: 0.18em; color: var(--blue); text-transform: uppercase; display: block; margin-top: -4px; }
+        .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text-mid); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--blue); }
+        .btn-give { background: var(--blue) !important; color: white !important; font-weight: 700 !important; padding: 9px 26px; border-radius: 8px; letter-spacing: 0.06em; box-shadow: 0 4px 16px rgba(0,173,239,0.3); }
+
+        /* PAGE MASTHEAD */
+        .masthead {
+            padding-top: 74px;
+            background: linear-gradient(135deg, #081020 0%, #0A1628 50%, #0D1E35 100%);
+            position: relative; overflow: hidden;
+        }
+        .masthead::before {
+            content: ''; position: absolute; top: -200px; right: -100px;
+            width: 700px; height: 700px;
+            background: radial-gradient(circle, rgba(0,173,239,0.1) 0%, transparent 65%);
+        }
+        .masthead::after {
+            content: 'ABOUT'; position: absolute; font-family: 'Bebas Neue', sans-serif;
+            font-size: 22vw; color: rgba(0,173,239,0.03);
+            bottom: -2vw; left: -1vw; letter-spacing: -4px; pointer-events: none; line-height: 1;
+        }
+        .masthead-inner { max-width: 1280px; margin: 0 auto; padding: 5rem 2.5rem 4rem; position: relative; z-index: 1; }
+        .section-tag { display: inline-block; background: var(--blue); color: white; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; padding: 5px 16px; border-radius: 4px; margin-bottom: 1.25rem; }
+        .masthead h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 7vw, 6.5rem); line-height: 0.95; letter-spacing: 2px; }
+        .masthead h1 span { color: var(--blue); }
+        .masthead-sub { font-family: 'Lora', serif; font-style: italic; font-size: 1.15rem; color: var(--text-mid); margin-top: 1rem; max-width: 560px; line-height: 1.7; }
+
+        /* MISSION STRIP */
+        .mission-strip {
+            background: var(--blue);
+            padding: 2.5rem;
+            text-align: center;
+        }
+        .mission-strip blockquote {
+            font-family: 'Lora', serif; font-style: italic;
+            font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+            color: white; max-width: 900px; margin: 0 auto;
+            line-height: 1.65;
+        }
+        .mission-strip cite { display: block; margin-top: 0.75rem; font-size: 0.75rem; font-family: 'DM Sans', sans-serif; font-style: normal; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.8; }
+
+        /* STORY SECTION */
+        .story { background: var(--mist); color: var(--navy); padding: 6rem 2.5rem; }
+        .story-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+        .story h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 0.95; letter-spacing: 1px; margin-bottom: 1.5rem; }
+        .story h2 span { color: var(--blue-deep); }
+        .story p { font-size: 1.02rem; line-height: 1.8; color: #3A5068; }
+        .story p + p { margin-top: 1rem; }
+        .story-img { border-radius: 20px; overflow: hidden; position: relative; }
+        .story-img img { width: 100%; display: block; border-radius: 20px; box-shadow: 0 24px 64px rgba(0,100,160,0.18); }
+        .story-img::before {
+            content: ''; position: absolute;
+            bottom: -3px; left: 0; right: 0; height: 50%;
+            background: linear-gradient(to top, rgba(0,100,160,0.25), transparent);
+            border-radius: 0 0 20px 20px; z-index: 1;
+        }
+        .year-badge {
+            position: absolute; top: 24px; left: 24px; z-index: 2;
+            background: var(--blue); color: white;
+            font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; line-height: 1;
+            padding: 12px 20px; border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,173,239,0.45);
+        }
+        .year-badge small { display: block; font-family: 'DM Sans', sans-serif; font-size: 0.55rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.85; }
+
+        /* VALUES */
+        .values { background: var(--navy); padding: 6rem 2.5rem; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-header h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4.5rem); letter-spacing: 2px; margin-top: 0.75rem; }
+        .section-header p { color: var(--text-dim); margin-top: 0.6rem; font-size: 1rem; }
+        .values-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+        .value-card {
+            background: linear-gradient(145deg, #0E2040 0%, #0A1628 100%);
+            border: 1px solid rgba(0,173,239,0.15);
+            border-radius: 20px; padding: 2.5rem 2rem;
+            position: relative; overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .value-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--blue-dark), var(--blue)); border-radius: 20px 20px 0 0; }
+        .value-card:hover { transform: translateY(-6px); border-color: rgba(0,173,239,0.35); }
+        .value-num { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; color: rgba(0,173,239,0.12); line-height: 1; margin-bottom: 0.5rem; }
+        .value-card h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.6rem; color: white; }
+        .value-card p { font-size: 0.88rem; color: var(--text-dim); line-height: 1.7; }
+
+        /* LEADERSHIP */
+        .leadership { background: var(--mist); color: var(--navy); padding: 6rem 2.5rem; }
+        .leadership .section-header h2 { color: var(--navy); }
+        .leadership .section-header p { color: #5A7A96; }
+        .leaders-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .leader-card {
+            background: white; border-radius: 20px; overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,80,140,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .leader-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(0,80,140,0.18); }
+        .leader-img { height: 260px; overflow: hidden; position: relative; }
+        .leader-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+        .leader-card:hover .leader-img img { transform: scale(1.04); }
+        .leader-img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 4rem; color: rgba(255,255,255,0.6); }
+        .lp1 { background: linear-gradient(135deg, #0089C4, #005F8A); }
+        .lp2 { background: linear-gradient(135deg, #00ADEF, #0089C4); }
+        .lp3 { background: linear-gradient(135deg, #1A4A7A, #0A2A50); }
+        .leader-body { padding: 1.75rem; }
+        .leader-role { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue-deep); margin-bottom: 0.35rem; }
+        .leader-name { font-family: 'Lora', serif; font-size: 1.3rem; font-weight: 600; color: var(--navy); margin-bottom: 0.6rem; }
+        .leader-bio { font-size: 0.85rem; color: #5A7A96; line-height: 1.65; }
+
+        /* BELIEFS */
+        .beliefs { background: var(--navy-mid); padding: 6rem 2.5rem; }
+        .beliefs-inner { max-width: 900px; margin: 0 auto; }
+        .belief-item {
+            padding: 1.75rem 0;
+            border-bottom: 1px solid rgba(0,173,239,0.1);
+            display: grid; grid-template-columns: 60px 1fr; gap: 1.25rem; align-items: start;
+        }
+        .belief-item:last-child { border-bottom: none; }
+        .belief-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; color: var(--blue); opacity: 0.5; line-height: 1; }
+        .belief-item h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.35rem; color: white; }
+        .belief-item p { font-size: 0.88rem; color: var(--text-dim); line-height: 1.7; }
+
+        /* FOOTER */
+        footer { background: var(--ink); border-top: 1px solid rgba(0,173,239,0.1); padding: 3.5rem 2rem; text-align: center; }
+        .footer-logo { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 0.75rem; }
+        .footer-name { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; letter-spacing: 3px; color: white; }
+        .footer-links { display: flex; justify-content: center; gap: 2rem; margin: 1rem 0; list-style: none; }
+        .footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--blue); }
+        footer p { color: rgba(255,255,255,0.35); font-size: 0.8rem; }
+        footer .copy { margin-top: 2rem; font-size: 0.7rem; color: rgba(255,255,255,0.2); }
+
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+            .story-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+            .values-grid { grid-template-columns: 1fr; }
+            .leaders-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .leaders-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a class="logo" href="index.html">
+            <div class="logo-mark">I</div>
+            <div><span class="logo-text">ICANJ</span><span class="logo-sub">Hackensack, NJ</span></div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="visit.html">Visit</a></li>
+            <li><a href="media.html">Media</a></li>
+            <li><a href="ministries.html">Ministries</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="https://icanj.churchcenter.com/giving" target="_blank" class="btn-give">Give</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+    <div class="masthead-inner">
+        <span class="section-tag">Our Story</span>
+        <h1>Who We<br><span>Are</span></h1>
+        <p class="masthead-sub">A community rooted in faith, united in purpose, and called to transform lives across New Jersey and beyond.</p>
+    </div>
+</div>
+
+<!-- MISSION -->
+<div class="mission-strip">
+    <blockquote>
+        "For I know the plans I have for you," declares the Lord, "plans to prosper you and not to harm you, plans to give you hope and a future."
+        <cite>Jeremiah 29:11 — The verse we build our church on</cite>
+    </blockquote>
+</div>
+
+<!-- STORY -->
+<section class="story">
+    <div class="story-inner">
+        <div>
+            <span class="section-tag">Our History</span>
+            <h2>25 Years of <span>Faithful Ministry</span></h2>
+            <p>Indian Christian Assembly of New Jersey (ICANJ) was founded with a simple yet powerful vision: to serve the Indian-American Christian community in New Jersey with authentic worship, biblical teaching, and genuine community.</p>
+            <p>What began as a small gathering of families has grown into a vibrant, multi-generational congregation. Over 25 years, we've seen lives transformed, families restored, and generations stepping into their God-given destinies.</p>
+            <p>Today, ICANJ continues to be a spiritual home for hundreds of believers — a place where culture and faith intersect, and where everyone is known by name.</p>
+        </div>
+        <div class="story-img">
+            <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=800&q=80" alt="ICANJ congregation worship">
+            <div class="year-badge">1999<small>Est.</small></div>
+        </div>
+    </div>
+</section>
+
+<!-- VALUES -->
+<section class="values">
+    <div class="section-header">
+        <span class="section-tag">What Drives Us</span>
+        <h2>Our Core Values</h2>
+        <p>The pillars that shape everything we do as a church family.</p>
+    </div>
+    <div class="values-grid">
+        <div class="value-card">
+            <div class="value-num">01</div>
+            <h4>Christ-Centered</h4>
+            <p>Jesus is the foundation of everything we do — from our Sunday services to how we serve our community throughout the week.</p>
+        </div>
+        <div class="value-card">
+            <div class="value-num">02</div>
+            <h4>Spirit-Led Worship</h4>
+            <p>We believe in authentic, passionate worship that moves beyond tradition into a genuine encounter with the living God.</p>
+        </div>
+        <div class="value-card">
+            <div class="value-num">03</div>
+            <h4>Biblical Truth</h4>
+            <p>The Word of God is our final authority — we preach it boldly, teach it faithfully, and live it practically.</p>
+        </div>
+        <div class="value-card">
+            <div class="value-num">04</div>
+            <h4>Community & Family</h4>
+            <p>We are a church where everyone belongs. Across generations and backgrounds, we do life together with love and intentionality.</p>
+        </div>
+        <div class="value-card">
+            <div class="value-num">05</div>
+            <h4>Mission & Outreach</h4>
+            <p>We are compelled by the Great Commission — locally in Hackensack, across New Jersey, and to the ends of the earth.</p>
+        </div>
+        <div class="value-card">
+            <div class="value-num">06</div>
+            <h4>Next Generation Focus</h4>
+            <p>We invest deeply in children and youth because they are not just the future of the church — they are the church today.</p>
+        </div>
+    </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section class="leadership">
+    <div class="section-header">
+        <span class="section-tag">Meet the Team</span>
+        <h2 style="color:var(--navy)">Our Leadership</h2>
+        <p>Passionate servants called to guide and shepherd the ICANJ family.</p>
+    </div>
+    <div class="leaders-grid">
+        <div class="leader-card">
+            <div class="leader-img lp1">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Pr. Finney Thomas">
+            </div>
+            <div class="leader-body">
+                <div class="leader-role">Senior Pastor</div>
+                <div class="leader-name">Pr. Finney Thomas</div>
+                <p class="leader-bio">Pastor Finney has led ICANJ with vision, humility, and Spirit-led authority for over two decades. His heart beats for every person to encounter the transforming love of Jesus.</p>
+            </div>
+        </div>
+        <div class="leader-card">
+            <div class="leader-img lp2">
+                <div class="leader-img-placeholder"><i class="fas fa-user"></i></div>
+            </div>
+            <div class="leader-body">
+                <div class="leader-role">Associate Pastor</div>
+                <div class="leader-name">Worship & Youth Ministry</div>
+                <p class="leader-bio">Leading our next generation ministries with energy and faith, our youth and worship team creates an environment where the young can encounter God authentically.</p>
+            </div>
+        </div>
+        <div class="leader-card">
+            <div class="leader-img lp3">
+                <div class="leader-img-placeholder"><i class="fas fa-users"></i></div>
+            </div>
+            <div class="leader-body">
+                <div class="leader-role">Elders & Deacons</div>
+                <div class="leader-name">Church Leadership Board</div>
+                <p class="leader-bio">Our dedicated board of elders and deacons faithfully serves the congregation — providing spiritual oversight, pastoral care, and practical support across all areas of ministry.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BELIEFS -->
+<section class="beliefs">
+    <div class="beliefs-inner">
+        <div class="section-header">
+            <span class="section-tag">Theology</span>
+            <h2>What We Believe</h2>
+            <p>Our faith rooted in Scripture and the historic Christian tradition.</p>
+        </div>
+        <div>
+            <div class="belief-item">
+                <div class="belief-num">01</div>
+                <div>
+                    <h4>The Bible</h4>
+                    <p>We believe the Bible is the inspired, infallible Word of God — our final authority for all matters of faith and life.</p>
+                </div>
+            </div>
+            <div class="belief-item">
+                <div class="belief-num">02</div>
+                <div>
+                    <h4>The Trinity</h4>
+                    <p>We believe in one God eternally existing as three persons: Father, Son, and Holy Spirit — co-equal and co-eternal.</p>
+                </div>
+            </div>
+            <div class="belief-item">
+                <div class="belief-num">03</div>
+                <div>
+                    <h4>Salvation by Grace</h4>
+                    <p>We believe salvation is by grace through faith in Jesus Christ alone — His atoning death, burial, and resurrection.</p>
+                </div>
+            </div>
+            <div class="belief-item">
+                <div class="belief-num">04</div>
+                <div>
+                    <h4>The Holy Spirit</h4>
+                    <p>We believe in the present-day ministry of the Holy Spirit — empowering believers for life, worship, and witness.</p>
+                </div>
+            </div>
+            <div class="belief-item">
+                <div class="belief-num">05</div>
+                <div>
+                    <h4>The Church</h4>
+                    <p>We believe the local church is God's primary vehicle for discipleship, community, and mission in the world.</p>
+                </div>
+            </div>
+            <div class="belief-item">
+                <div class="belief-num">06</div>
+                <div>
+                    <h4>The Return of Christ</h4>
+                    <p>We believe in the literal, physical return of Jesus Christ — and we live with that blessed hope shaping our priorities.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-logo">
+        <div class="logo-mark">I</div>
+        <span class="footer-name">ICANJ</span>
+    </div>
+    <ul class="footer-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="visit.html">Visit</a></li>
+        <li><a href="ministries.html">Ministries</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="media.html">Media</a></li>
+    </ul>
+    <p>315 State Street · Hackensack, New Jersey</p>
+    <p class="copy">© 2026 India Christian Assembly of New Jersey</p>
+</footer>
+</body>
+</html>
