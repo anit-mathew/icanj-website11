@@ -23,9 +23,11 @@
         nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(8,16,32,0.88); backdrop-filter: blur(18px); border-bottom: 1px solid rgba(0,173,239,0.15); }
         .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 2.5rem; height: 74px; display: flex; align-items: center; justify-content: space-between; }
         .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: white; }
-        .logo-mark { width: 44px; height: 44px; background: var(--blue); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: white; box-shadow: 0 0 18px rgba(0,173,239,0.4); }
+        .logo-mark { width: 120px; height: 44px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .logo-mark img { width: 100%; height: 100%; object-fit: contain; }
         .logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 3px; }
         .logo-sub { font-size: 0.6rem; letter-spacing: 0.18em; color: var(--blue); text-transform: uppercase; display: block; margin-top: -4px; }
+        .logo-text, .logo-sub { display: none; }
         .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
         .nav-links a { text-decoration: none; color: var(--text-mid); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
         .nav-links a:hover, .nav-links a.active { color: var(--blue); }
@@ -83,13 +85,13 @@
             border-radius: 0 0 20px 20px; z-index: 1;
         }
         .year-badge {
-            position: absolute; top: 24px; left: 24px; z-index: 2;
+            position: absolute; top: 16px; left: 16px; z-index: 2;
             background: var(--blue); color: white;
-            font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; line-height: 1;
-            padding: 12px 20px; border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0,173,239,0.45);
+            font-family: 'Bebas Neue', sans-serif; font-size: 2rem; line-height: 1;
+            padding: 8px 14px; border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0,173,239,0.45);
         }
-        .year-badge small { display: block; font-family: 'DM Sans', sans-serif; font-size: 0.55rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.85; }
+        .year-badge small { display: block; font-family: 'DM Sans', sans-serif; font-size: 0.5rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.85; }
 
         /* VALUES */
         .values { background: var(--navy); padding: 6rem 2.5rem; }
@@ -106,7 +108,7 @@
         }
         .value-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--blue-dark), var(--blue)); border-radius: 20px 20px 0 0; }
         .value-card:hover { transform: translateY(-6px); border-color: rgba(0,173,239,0.35); }
-        .value-num { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; color: rgba(0,173,239,0.12); line-height: 1; margin-bottom: 0.5rem; }
+        .value-num { display: none; }
         .value-card h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.6rem; color: white; }
         .value-card p { font-size: 0.88rem; color: var(--text-dim); line-height: 1.7; }
 
@@ -114,7 +116,7 @@
         .leadership { background: var(--mist); color: var(--navy); padding: 6rem 2.5rem; }
         .leadership .section-header h2 { color: var(--navy); }
         .leadership .section-header p { color: #5A7A96; }
-        .leaders-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .leaders-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
         .leader-card {
             background: white; border-radius: 20px; overflow: hidden;
             box-shadow: 0 8px 32px rgba(0,80,140,0.1);
@@ -214,8 +216,7 @@
 <nav>
     <div class="nav-inner">
         <a class="logo" href="index.html">
-            <div class="logo-mark">I</div>
-            <div><span class="logo-text">ICANJ</span><span class="logo-sub">Hackensack, NJ</span></div>
+            <div class="logo-mark"><img src="pics/LOGO transparent3_white.png" alt="ICANJ"></div>
         </a>
         <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
             <span></span><span></span><span></span>
@@ -240,13 +241,6 @@
     </div>
 </div>
 
-<!-- MISSION -->
-<div class="mission-strip">
-    <blockquote>
-        "For I know the plans I have for you," declares the Lord, "plans to prosper you and not to harm you, plans to give you hope and a future."
-        <cite>Jeremiah 29:11 — The verse we build our church on</cite>
-    </blockquote>
-</div>
 
 <!-- STORY -->
 <section class="story">
@@ -311,7 +305,6 @@
     <div class="section-header">
         <span class="section-tag">Meet the Team</span>
         <h2 style="color:var(--navy)">Our Leadership</h2>
-        <p>Passionate servants called to guide and shepherd the ICANJ family.</p>
     </div>
     <div class="leaders-grid">
         <div class="leader-card">
@@ -335,13 +328,13 @@
             </div>
         </div>
         <div class="leader-card">
-            <div class="leader-img lp3">
-                <img src="pics/DSC03708.JPG" alt="Church Leadership Board">
+            <div class="leader-img lp2">
+                <img src="pics/1CA01983.JPG" alt="Pr. Tony Koshy">
             </div>
             <div class="leader-body">
-                <div class="leader-role">Elders & Deacons</div>
-                <div class="leader-name">Church Leadership Board</div>
-                <p class="leader-bio">Our dedicated board of elders and deacons faithfully serves the congregation — providing spiritual oversight, pastoral care, and practical support across all areas of ministry.</p>
+                <div class="leader-role">Youth Pastor</div>
+                <div class="leader-name">Pr. Tony Koshy</div>
+                <p class="leader-bio">Pastor Tony leads ICANJ's youth ministry with passion and purpose — creating a space where the next generation can grow in faith, find community, and step boldly into their calling.</p>
             </div>
         </div>
     </div>
@@ -404,7 +397,7 @@
 
 <footer>
     <div class="footer-logo">
-        <div class="logo-mark">I</div>
+        <div class="logo-mark"><img src="pics/LOGO transparent3_white.png" alt="ICANJ"></div>
         <span class="footer-name">ICANJ</span>
     </div>
     <ul class="footer-links">

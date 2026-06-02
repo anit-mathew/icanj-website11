@@ -21,9 +21,11 @@
         nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(8,16,32,0.88); backdrop-filter: blur(18px); border-bottom: 1px solid rgba(0,173,239,0.15); }
         .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 2.5rem; height: 74px; display: flex; align-items: center; justify-content: space-between; }
         .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: white; }
-        .logo-mark { width: 44px; height: 44px; background: var(--blue); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: white; box-shadow: 0 0 18px rgba(0,173,239,0.4); }
+        .logo-mark { width: 120px; height: 44px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .logo-mark img { width: 100%; height: 100%; object-fit: contain; }
         .logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 3px; }
         .logo-sub { font-size: 0.6rem; letter-spacing: 0.18em; color: var(--blue); text-transform: uppercase; display: block; margin-top: -4px; }
+        .logo-text, .logo-sub { display: none; }
         .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
         .nav-links a { text-decoration: none; color: var(--text-mid); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
         .nav-links a:hover, .nav-links a.active { color: var(--blue); }
@@ -190,8 +192,7 @@
 <nav>
     <div class="nav-inner">
         <a class="logo" href="index.html">
-            <div class="logo-mark">I</div>
-            <div><span class="logo-text">ICANJ</span><span class="logo-sub">Hackensack, NJ</span></div>
+            <div class="logo-mark"><img src="pics/LOGO transparent3_white.png" alt="ICANJ"></div>
         </a>
         <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
             <span></span><span></span><span></span>
@@ -407,7 +408,7 @@
 
 <footer>
     <div class="footer-logo">
-        <div class="logo-mark">I</div>
+        <div class="logo-mark"><img src="pics/LOGO transparent3_white.png" alt="ICANJ"></div>
         <span class="footer-name">ICANJ</span>
     </div>
     <ul class="footer-links">
